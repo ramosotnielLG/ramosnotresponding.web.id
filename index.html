@@ -1,13 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My web</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universitas Advent Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Ramos</h1>
-    <h2>Otniel Lumban Gaol</h2>
-    <h3>test</h3>
+<body class="font-sans bg-white">
+
+    <header class="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+
+            <div class="flex items-center space-x-3">
+                <img src="/img/Logo-Unai.png" class="h-12" alt="Logo UNAI"/>
+                <h1 class="text-xl font-semibold text-gray-900">Ramos Otniel Lumban Gaol</h1>
+            </div>
+
+            <nav class="hidden md:flex space-x-10 pr-4 text-gray-800 font-medium">
+                <a href="index.html" class="hover:text-indigo-700">Home</a>
+                <a href="biodata.html" class="hover:text-indigo-700">Biodata</a>
+                <a href="contact_us.html" class="hover:text-indigo-700">Contact Us</a>
+                <a href="freepage.html" class="hover:text-indigo-700">Posts</a>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-gray-800 font-medium">
+            <a href="#" class="hover:text-indigo-900">Home</a>
+            <a href="#" class="hover:text-indigo-900">Biodata</a>
+            <a href="#" class="hover:text-indigo-900">Contact Us</a>
+            <a href="#" class="hover:text-indigo-900">Posts</a>
+        </div>
+    </header>
+
+    <section class="w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-white mt-20" style="background-image: url(./img/alps.jpg);">
+        <div class="bg-gradient-to-tl from-blue-200 via-blue-400 to-blue-600 bg-opacity-70 p-10 rounded-xl text-center">
+            <h2 class="text-4xl font-bold mb-4">Welcome to my website</h2>
+            <p class="text-lg max-w-xl mx-auto">Website that I made with love</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-10 -mt-12 -mb-10 flex justify-center">
+        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
+            <h3 class="text-xl font-semibold mb-2">About Dev.</h3>
+            <p class="text-gray-600">My name is Ramos. I'am a collague student in UNAI.</p>
+        </div>
+
+        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
+            <h3 class="text-xl font-semibold mb-2">What major?</h3>
+            <p class="text-gray-600">I majored in Informatics Engineering from the Faculty of Technology Information</p>
+        </div>
+
+        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
+            <h3 class="text-xl font-semibold mb-2">What year?</h3>
+            <p class="text-gray-600">I'am the class of 2024</p>
+        </div>
+
+        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
+            <h3 class="text-xl font-semibold mb-2">FTI & UNAI Web?</h3>
+            <a href="https://www.unai.edu/" target="_blank" class="text-gray-600 hover:text-black">- UNAI</a>
+            <a href="https://fti.unai.edu/" target="_blank" class="text-gray-600 hover:text-black flex">- FTI</a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10 mt-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Universitas Advent Indonesia</h4>
+                <p class="text-gray-300">Jl. Kolonel Masturi No.288, Bandung Barat</p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Informasi</h4>
+                <ul class="space-y-2 text-gray-300">
+                    <li>About me</li>
+                    <li>Biodata</li>
+                    <li>Contact us</li>
+                    <li>Posts</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Follow me on:</h4>
+                <a href="https://www.instagram.com/ram__34_/" target="_blank"><p class="text-gray-300">Instagram</p></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
