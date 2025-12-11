@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+
+            <div class="flex items-center space-x-3">
+                <img src="/img/Logo-Unai.png" class="h-12" alt="Logo UNAI"/>
+                <h1 class="text-xl font-semibold text-gray-900">Ramos Otniel Lumban Gaol</h1>
+            </div>
+
+            <nav class="hidden md:flex space-x-10 pr-4 text-gray-800 font-medium">
+                <a href="index.html" class="hover:text-indigo-700">Home</a>
+                <a href="biodata.html" class="hover:text-indigo-700">Biodata</a>
+                <a href="contact_us.html" class="hover:text-indigo-700">Contact Us</a>
+                <a href="freepage.html" class="hover:text-indigo-700">Posts</a>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-gray-800 font-medium">
+            <a href="#" class="hover:text-indigo-900">Home</a>
+            <a href="#" class="hover:text-indigo-900">Biodata</a>
+            <a href="#" class="hover:text-indigo-900">Contact Us</a>
+            <a href="#" class="hover:text-indigo-900">Posts</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto pt-32 px-6 pb-16">
+
+        <h1 class="text-4xl font-bold text-center text-indigo-700 mb-12">Fetched Post</h1>
+
+        <div class="bg-white shadow-md rounded-xl p-6 mb-10 border border-gray-200">
+            <label class="block font-semibold text-gray-700 mb-2">Enter Your Last 2 Digits from your NIM</label>
+            <input type="text" id="nimInput"
+                   class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                   placeholder="Example: 01">
+
+            <button id="fetchBtn"
+                    class="mt-4 w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                Fetch Post
+            </button>
+        </div>
+
+        <div id="postContainer" class="bg-white shadow-lg rounded-xl p-8 border border-gray-200">
+            <p class="text-gray-500 text-center">Loading post...</p>
+        </div>
+
+    </main>
+
+        <script>
+        const fetchBtn = document.getElementById("fetchBtn");
+        const postContainer = document.getElementById("postContainer");
+
+        fetchBtn.addEventListener("click", () => {
+            const nim = document.getElementById("nimInput").value.trim();
+
+            if (nim === "" || nim.length < 2) {
+                postContainer.innerHTML =
+                    `<p class="text-red-600 font-semibold">Please enter a valid NIM (at least 2 digits).</p>`;
+                return;
+            }
+
+            const lastTwo = nim.slice(-2);
+
+            const url = `https://jsonplaceholder.typicode.com/posts/${lastTwo}]]`;
+
+            postContainer.innerHTML = `<p class="text-gray-500">Loading post...</p>`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    postContainer.innerHTML = `
+                        <div class="space-y-4 text-left">
+                            <div>
+                                <h2 class="text-xl font-semibold text-indigo-600">Post ID:</h2>
+                                <p>${data.id}</p>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-semibold text-indigo-600">Title:</h2>
+                                <p>${data.title}</p>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-semibold text-indigo-600">Body:</h2>
+                                <p class="leading-relaxed">${data.body}</p>
+                            </div>
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    postContainer.innerHTML = `
+                        <p class="text-red-600 font-semibold">Error fetching data.</p>
+                    `;
+                });
+        });
+    </script>
+
+</body>
+</html>

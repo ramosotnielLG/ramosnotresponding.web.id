@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+
+            <div class="flex items-center space-x-3">
+                <img src="/img/Logo-Unai.png" class="h-12" alt="Logo UNAI"/>
+                <h1 class="text-xl font-semibold text-gray-900">Ramos Otniel Lumban Gaol</h1>
+            </div>
+
+            <nav class="hidden md:flex space-x-10 pr-4 text-gray-800 font-medium">
+                <a href="index.html" class="hover:text-indigo-700">Home</a>
+                <a href="biodata.html" class="hover:text-indigo-700">Biodata</a>
+                <a href="contact_us.html" class="hover:text-indigo-700">Contact Us</a>
+                <a href="posts.html" class="hover:text-indigo-700">Posts</a>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-gray-800 font-medium">
+            <a href="index.html" class="hover:text-indigo-900">Home</a>
+            <a href="biodata.html" class="hover:text-indigo-900">Biodata</a>
+            <a href="contact_us.html" class="hover:text-indigo-900">Contact Us</a>
+            <a href="posts.html" class="hover:text-indigo-900">Posts</a>
+        </div>
+    </header>
+
+    <main class="bg-[url('/img/alps.jpg')] bg-cover bg-center bg-no-repeat py-24">
+        <div class="max-w-3xl mx-auto mt-12 p-8 bg-white/90 backdrop-blur-sm shadow-lg rounded-xl">
+            <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6 py-10">Student Registration Form</h1>
+            <form id="regForm" class="space-y-6">
+
+        <div>
+            <label class="block font-medium text-gray-700">Full Name</label>
+            <input type="text" id="fullName" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="John Doe">
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Student ID (NIM)</label>
+            <input type="text" id="nim" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="123456">
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Email</label>
+            <input type="email" id="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="email@gmail.com">
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Faculty/Major</label>
+            <select id="faculty" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="">Select Faculty</option>
+                <option>Information Technology</option>
+                <option>Business Faculty</option>
+                <option>Education Faculty</option>
+                <option>Health Science</option>
+            </select>
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Date of Birth</label>
+            <input type="date" id="dob" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700 mb-2">Gender</label>
+            <div class="flex items-center space-x-6">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="gender" value="Male">
+                    <span>Male</span>
+                </label>
+
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="gender" value="Female">
+                    <span>Female</span>
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Address</label>
+            <textarea id="address" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Jl. Kolonel Masturi No. 288"></textarea>
+        </div>
+
+        <div>
+            <label class="block font-medium text-gray-700">Phone Number</label>
+            <input type="text" id="phone" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="081234567890">
+        </div>
+
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Submit Registration</button>
+        </form>
+
+        <div id="successMsg" class="hidden mt-6 p-4 text-green-700 bg-green-100 border border-green-400 rounded-lg">
+            ✔ Registration Successful! Your data has been submitted.
+        </div>
+    </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-10 ">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Universitas Advent Indonesia</h4>
+                <p class="text-gray-300">Jl. Kolonel Masturi No.288, Bandung Barat</p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Informasi</h4>
+                <ul class="space-y-2 text-gray-300">
+                    <li>About me</li>
+                    <li>Biodata</li>
+                    <li>Contact us</li>
+                    <li>Posts</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Follow me on:</h4>
+                <a href="https://www.instagram.com/ram__34_/" target="_blank"><p class="text-gray-300">Instagram</p></a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("fullName").value.trim();
+    const nim = document.getElementById("nim").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const faculty = document.getElementById("faculty").value;
+    const dob = document.getElementById("dob").value;
+    const address = document.getElementById("address").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const gender = document.querySelector("input[name='gender']:checked");
+
+    if (!name || !nim || !email || !faculty || !dob || !address || !phone || !gender) {
+        alert("Please fill in all fields!");
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    if (!/^[0-9]+$/.test(phone)) {
+        alert("Phone number must contain only numbers.");
+        return;
+    }
+
+    if (phone.length < 10) {
+        alert("Phone number must be at least 10 digits.");
+        return;
+    }
+
+    const successBox = document.getElementById("successMsg");
+    successBox.classList.remove("hidden");
+
+    document.getElementById("regForm").reset();
+
+    setTimeout(() => {
+        successBox.classList.add("hidden");
+    }, 3000);
+});
+</script>
+
+</body>
+</html>
