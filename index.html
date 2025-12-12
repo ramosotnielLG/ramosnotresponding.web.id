@@ -5,85 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universitas Advent Indonesia</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+    </style>
 </head>
-<body class="font-sans bg-gray-50 min-h-screen">
+<body class="font-sans bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
 
-    <header class="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+    <header class="w-full shadow-sm fixed top-0 left-0 bg-white/80 backdrop-blur-md z-50 transition-all">
         <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-
             <div class="flex items-center space-x-3">
                 <img src="/img/Logo-Unai.png" class="h-12" alt="Logo UNAI"/>
-                <h1 class="text-xl font-semibold text-gray-900">Ramos Otniel Lumban Gaol</h1>
+                <h1 class="text-xl font-semibold text-slate-700">Ramos Otniel Lumban Gaol</h1>
             </div>
 
-            <nav class="hidden md:flex space-x-10 pr-4 text-gray-800 font-medium">
-                <a href="index.html" class="hover:text-indigo-700">Home</a>
-                <a href="biodata.html" class="hover:text-indigo-700">Biodata</a>
-                <a href="contact_us.html" class="hover:text-indigo-700">Contact Us</a>
-                <a href="posts.html" class="hover:text-indigo-700">Posts</a>
+            <nav class="hidden md:flex space-x-8 pr-4 text-slate-600 font-medium">
+                <a href="index.html" class="hover:text-sky-600 transition-colors border-b-2 border-sky-500 pb-1">Home</a>
+                <a href="biodata.html" class="hover:text-sky-600 transition-colors">Biodata</a>
+                <a href="contact_us.html" class="hover:text-sky-600 transition-colors">Contact Us</a>
+                <a href="posts.html" class="hover:text-sky-600 transition-colors">Posts</a>
+                <a href="freepage.html" class="hover:text-sky-600 transition-colors">Gallery</a>
             </nav>
 
-            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+            <button id="menuBtn" class="md:hidden text-3xl text-slate-600 hover:text-sky-600 transition">☰</button>
         </div>
 
-        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-gray-800 font-medium">
-            <a href="index.html" class="hover:text-indigo-900">Home</a>
-            <a href="biodata.html" class="hover:text-indigo-900">Biodata</a>
-            <a href="contact_us.html" class="hover:text-indigo-900">Contact Us</a>
-            <a href="posts.html" class="hover:text-indigo-900">Posts</a>
+        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-slate-600 font-medium bg-white/95 backdrop-blur-md">
+            <a href="index.html" class="hover:text-sky-600 transition py-2">Home</a>
+            <a href="biodata.html" class="hover:text-sky-600 transition py-2">Biodata</a>
+            <a href="contact_us.html" class="hover:text-sky-600 transition py-2">Contact Us</a>
+            <a href="posts.html" class="hover:text-sky-600 transition py-2">Posts</a>
+            <a href="freepage.html" class="hover:text-sky-600 transition py-2">Gallery</a>
         </div>
     </header>
 
-    <section class="w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-white mt-20" style="background-image: url(./img/alps.jpg);">
-        <div class="bg-gradient-to-tl from-blue-200 via-blue-400 to-blue-600 bg-opacity-70 p-10 rounded-xl text-center">
-            <h2 class="text-4xl font-bold mb-4">Welcome to my website</h2>
-            <p class="text-lg max-w-xl mx-auto">Website that I made with love</p>
+    <section class="w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-white mt-20 relative" style="background-image: url(./img/alps.jpg);">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/30 to-slate-900/50"></div>
+        <div class="relative z-10 text-center px-6">
+            <h2 class="text-5xl md:text-6xl font-bold mb-4 fade-in-up">Welcome to My Portfolio</h2>
+            <p class="text-xl md:text-2xl text-blue-100 fade-in-up stagger-1">Per Aspera, Ad Astra</p>
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-10 -mt-12 -mb-10 flex justify-center">
-        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
-            <h3 class="text-xl font-semibold mb-2">About Dev.</h3>
-            <p class="text-gray-600">My name is Ramos. I'am a collague student in UNAI.</p>
+    <div class="max-w-6xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        
+            <div class="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+                <div class="overflow-hidden">
+                    <img src="img/rektoratUI.jpg" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-600 leading-relaxed">UI adalah salah satu universitas riset atau institusi akademik terkemuka di dunia yang terus mengejar pencapaian tertinggi dalam hal penemuan, pengembangan dan difusi pengetahuan secara regional dan global.</p>
+                </div>
+            </div>
+
+            <div class="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+                <div class="overflow-hidden">
+                    <img src="img/LabUI.jpg" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-600 leading-relaxed">Sejarah Universitas Indonesia dimulai sejak 1849 dimana UI menjadi representasi institusi pendidikan dengan sejarah tertua di Asia. Hingga hari ini, UI terus memainkan peran penting di tingkat nasional dan global.</p>
+                </div>
+            </div>
+
+            <div class="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+                <div class="overflow-hidden">
+                    <img src="img/LariUI.jpg" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-600 leading-relaxed">Kampus kami adalah tempat berkumpulnya orang-orang yang kreatif, dinamis, dan menginspirasi untuk tumbuh bersama.</p>
+                </div>
+            </div>
+
+            <section class="max-w-7xl mx-auto px-6 py-16">
+    <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-700 mb-3">Berita Kampus & Update</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full"></div>
+    </div>
+
+    <div class="flex justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class="overflow-hidden">
+                <img src="/img/berita1.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <div class="flex items-center space-x-2 text-slate-500 text-sm mb-3">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>12/12/2025</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-700 mb-3 line-clamp-2 group-hover:text-sky-600 transition-colors">
+                    Mahasiswa Doktor PPIM FEB UI Teliti Hubungan Layanan Cerdas
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                    Depok, 9 Desember 2025. Mahasiswa doktoral Program Pascasarjana melakukan penelitian mendalam tentang layanan cerdas...
+                </p>
+                <button class="mt-4 text-sky-600 font-semibold text-sm hover:text-sky-700 transition flex items-center space-x-1">
+                    <span>Read More</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
-            <h3 class="text-xl font-semibold mb-2">What major?</h3>
-            <p class="text-gray-600">I majored in Informatics Engineering from the Faculty of Information Technology</p>
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class="overflow-hidden">
+                <img src="/img/berita2.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <div class="flex items-center space-x-2 text-slate-500 text-sm mb-3">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>12/12/2025</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-700 mb-3 line-clamp-2 group-hover:text-sky-600 transition-colors">
+                    Naik Peringkat ke 19 Dunia, UI Jadi Kampus Berkelanjutan
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                    Depok, 10 Desember 2025. Universitas Indonesia mencatat prestasi gemilang dalam peringkat kampus berkelanjutan global...
+                </p>
+                <button class="mt-4 text-sky-600 font-semibold text-sm hover:text-sky-700 transition flex items-center space-x-1">
+                    <span>Read More</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
-            <h3 class="text-xl font-semibold mb-2">What year?</h3>
-            <p class="text-gray-600">I'am the class of 2024</p>
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class="overflow-hidden">
+                <img src="/img/berita3.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <div class="flex items-center space-x-2 text-slate-500 text-sm mb-3">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>12/12/2025</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-700 mb-3 line-clamp-2 group-hover:text-sky-600 transition-colors">
+                    Rektor UI Tekankan Integritas dalam Pelantikan Delapan Dekan Baru
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                    Depok, 11 Desember 2025. UI mengukuhkan delapan dekan baru dalam upacara pelantikan yang penuh makna...
+                </p>
+                <button class="mt-4 text-sky-600 font-semibold text-sm hover:text-sky-700 transition flex items-center space-x-1">
+                    <span>Read More</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="shadow-lg rounded-xl p-6 border hover:shadow-xl transition-all">
-            <h3 class="text-xl font-semibold mb-2">FTI & UNAI Web?</h3>
-            <a href="https://www.unai.edu/" target="_blank" class="text-gray-600 hover:text-black">- UNAI</a>
-            <a href="https://fti.unai.edu/" target="_blank" class="text-gray-600 hover:text-black flex">- FTI</a>
+        </div>
+    </div>
+</section>
+
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto py-16 px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+            <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+                <span class="text-2xl">👤</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-slate-700">About Dev.</h3>
+            <p class="text-slate-600">My name is Ramos. I'm a college student in UNAI.</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+            <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+                <span class="text-2xl">📚</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-slate-700">What major?</h3>
+            <p class="text-slate-600">I majored in Informatics Engineering from the Faculty of Information Technology</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                <span class="text-2xl">📅</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-slate-700">What year?</h3>
+            <p class="text-slate-600">I'm the class of 2024</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                <span class="text-2xl">🔗</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-slate-700">FTI & UNAI Web?</h3>
+            <a href="https://www.unai.edu/" target="_blank" class="text-sky-600 hover:text-sky-700 block">- UNAI</a>
+            <a href="https://fti.unai.edu/" target="_blank" class="text-sky-600 hover:text-sky-700 block">- FTI</a>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-10 mt-10">
+    <footer class="bg-slate-800 text-white py-12 mt-16">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
             <div>
-                <h4 class="text-xl font-semibold mb-3">Universitas Advent Indonesia</h4>
-                <p class="text-gray-300">Jl. Kolonel Masturi No.288, Bandung Barat</p>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Universitas Advent Indonesia</h4>
+                <p class="text-slate-300">Jl. Kolonel Masturi No.288, Bandung Barat</p>
             </div>
 
             <div>
-                <h4 class="text-xl font-semibold mb-3">Informasi</h4>
-                <ul class="space-y-2 text-gray-300">
-                    <li>About me</li>
-                    <li>Biodata</li>
-                    <li>Contact us</li>
-                    <li>Posts</li>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Informasi</h4>
+                <ul class="space-y-2 text-slate-300">
+                    <li><a href="biodata.html" class="hover:text-sky-300 transition">About me</a></li>
+                    <li><a href="biodata.html" class="hover:text-sky-300 transition">Biodata</a></li>
+                    <li><a href="contact_us.html" class="hover:text-sky-300 transition">Contact us</a></li>
+                    <li><a href="posts.html" class="hover:text-sky-300 transition">Posts</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-xl font-semibold mb-3">Follow me on:</h4>
-                <a href="https://www.instagram.com/ram__34_/" target="_blank"><p class="text-gray-300">Instagram</p></a>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Follow me on:</h4>
+                <a href="https://www.instagram.com/ram__34_/" target="_blank" class="text-slate-300 hover:text-sky-300 transition">Instagram</a>
             </div>
         </div>
     </footer>

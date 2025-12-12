@@ -3,36 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gallery - Ramos Otniel</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .lightbox {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .lightbox-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .gallery-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+    </style>
 </head>
-<body>
-    <header class="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <header class="w-full shadow-sm fixed top-0 left-0 bg-white/80 backdrop-blur-md z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-
             <div class="flex items-center space-x-3">
                 <img src="/img/Logo-Unai.png" class="h-12" alt="Logo UNAI"/>
-                <h1 class="text-xl font-semibold text-gray-900">Ramos Otniel Lumban Gaol</h1>
+                <h1 class="text-xl font-semibold text-slate-700">Ramos Otniel Lumban Gaol</h1>
             </div>
 
-            <nav class="hidden md:flex space-x-10 pr-4 text-gray-800 font-medium">
-                <a href="index.html" class="hover:text-indigo-700">Home</a>
-                <a href="biodata.html" class="hover:text-indigo-700">Biodata</a>
-                <a href="contact_us.html" class="hover:text-indigo-700">Contact Us</a>
-                <a href="freepage.html" class="hover:text-indigo-700">Posts</a>
+            <nav class="hidden md:flex space-x-8 pr-4 text-slate-600 font-medium">
+                <a href="index.html" class="hover:text-sky-600 transition-colors">Home</a>
+                <a href="biodata.html" class="hover:text-sky-600 transition-colors">Biodata</a>
+                <a href="contact_us.html" class="hover:text-sky-600 transition-colors">Contact Us</a>
+                <a href="posts.html" class="hover:text-sky-600 transition-colors">Posts</a>
+                <a href="freepage.html" class="hover:text-sky-600 transition-colors border-b-2 border-sky-500 pb-1">Gallery</a>
             </nav>
 
-            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+            <button id="menuBtn" class="md:hidden text-3xl text-slate-600 hover:text-sky-600 transition">☰</button>
         </div>
 
-        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-gray-800 font-medium">
-            <a href="#" class="hover:text-indigo-900">Home</a>
-            <a href="#" class="hover:text-indigo-900">Biodata</a>
-            <a href="#" class="hover:text-indigo-900">Contact Us</a>
-            <a href="#" class="hover:text-indigo-900">Posts</a>
+        <div id="mobileMenu" class="hidden flex-col space-y-4 px-6 pb-4 md:hidden text-slate-600 font-medium bg-white/95 backdrop-blur-md">
+            <a href="index.html" class="hover:text-sky-600 transition py-2">Home</a>
+            <a href="biodata.html" class="hover:text-sky-600 transition py-2">Biodata</a>
+            <a href="contact_us.html" class="hover:text-sky-600 transition py-2">Contact Us</a>
+            <a href="posts.html" class="hover:text-sky-600 transition py-2">Posts</a>
+            <a href="freepage.html" class="hover:text-sky-600 transition py-2">Gallery</a>
         </div>
     </header>
 
-    
+    <main class="max-w-6xl mx-auto py-24 px-5">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-700 mb-4">My Photo Gallery</h1>
+            <p class="text-slate-500 text-lg">Click on any image to view in full size</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/SonHoregCompressed.jpg', 'This photo was taken last year, when there still a lot of member.')">
+                <div class="overflow-hidden">
+                    <img src="/img/SonHoregCompressed.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        This photo was taken last year, when there still a lot of member.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/w karlong.jpg', 'This is my first concert with Sonore in Jakarta. That\'s me with kak Karla')">
+                <div class="overflow-hidden">
+                    <img src="/img/w karlong.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        This is my first concert with Sonore in Jakarta. That's me with kak Karla
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/GrindelwaldCompressed.jpg', 'My best landscape photo I\'ve took so far')">
+                <div class="overflow-hidden">
+                    <img src="/img/GrindelwaldCompressed.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        My best landscape photo I've took so far
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/CIMENKKK.jpg', 'CIMENKKKK SO CUTEEEEE!')">
+                <div class="overflow-hidden">
+                    <img src="/img/CIMENKKK.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        My fav cat Cimenk! (bang bj's cat)
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/selfie.jpg', 'A selfie with one of my fav person')">
+                <div class="overflow-hidden">
+                    <img src="/img/selfie.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        A selfie with one of my fav person
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/fam.jpg', 'Family photo on my brother\'s high school graduation')">
+                <div class="overflow-hidden">
+                    <img src="/img/fam.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        Family photo on my brother's high school graduation
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/meshuggah.jpeg', 'My favorite band')">
+                <div class="overflow-hidden">
+                    <img src="/img/meshuggah.jpeg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        My favorite band, Meshuggah
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item group bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" onclick="openLightbox('/img/koloss.jpg', 'My favorite band')">
+                <div class="overflow-hidden">
+                    <img src="/img/koloss.jpg" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <p class="text-slate-600 leading-relaxed">
+                        <a href="https://youtu.be/zg2076b5Lqc?si=yPHJHNbhwNyX0LyB" target="_blank">My favorite album, Koloss by Meshuggah</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-sky-400 transition z-10" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content max-w-5xl w-full" onclick="event.stopPropagation()">
+            <img id="lightboxImage" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-2xl">
+            <p id="lightboxCaption" class="text-white text-center mt-6 text-lg px-4"></p>
+        </div>
+    </div>
+
+    <footer class="bg-slate-800 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Universitas Advent Indonesia</h4>
+                <p class="text-slate-300">Jl. Kolonel Masturi No.288, Bandung Barat</p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Informasi</h4>
+                <ul class="space-y-2 text-slate-300">
+                    <li><a href="biodata.html" class="hover:text-sky-300 transition">About me</a></li>
+                    <li><a href="contact_us.html" class="hover:text-sky-300 transition">Contact us</a></li>
+                    <li><a href="posts.html" class="hover:text-sky-300 transition">Posts</a></li>
+                    <li><a href="freepage.html" class="hover:text-sky-300 transition">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-sky-300">Follow me on:</h4>
+                <a href="https://www.instagram.com/ram__34_/" target="_blank" class="text-slate-300 hover:text-sky-300 transition">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            lightboxImage.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+
 </body>
 </html>
