@@ -2,6 +2,6 @@ Name: Ramos Otniel Lumban Gaol
 NIM: 2481032
 Major: Informatics Engineering
 
-GitHub Repository URL:
+GitHub Repository URL: https://github.com/ramosotnielLG/ramosnotresponding.web.id
 
 My Domain Name: ramosnotresponding.web.id
